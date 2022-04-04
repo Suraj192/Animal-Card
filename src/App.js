@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import AnimalCard from "./Animal-Card";
+import animals from "./animals-array";
+
+const App = (props) => {
+  /*const addLike = (animal) => {
+    animal.likes = animal.likes + 1;
+    setState([...animals, animal]);
+  };*/
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div>
+        <h1>Animals</h1>
+      </div>
+      <div className="container">
+        {animals.map((animal) => (
+          <AnimalCard
+            key={animal.name}
+            name={animal.name}
+            like={animal.likes}
+            /*addLike={() => addLike()}
+            animal={animal}*/
+          />
+        ))}
+      </div>
+    </main>
   );
-}
+};
 
 export default App;
